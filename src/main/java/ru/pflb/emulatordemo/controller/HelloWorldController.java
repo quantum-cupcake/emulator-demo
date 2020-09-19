@@ -1,5 +1,6 @@
 package ru.pflb.emulatordemo.controller;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ public class HelloWorldController {
 
     private final GreetService greetService;
 
-    public HelloWorldController(GreetService greetService) {
+    public HelloWorldController(@Qualifier("greetServiceJdbc") GreetService greetService) {
         this.greetService = greetService;
     }
 
